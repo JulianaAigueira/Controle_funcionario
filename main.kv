@@ -1,0 +1,27 @@
+#:include kv/homepage.kv
+#:include kv/menupage.kv
+#:import utils kivy.utils
+
+FloatLayout:
+    canvas:
+        Color:
+            rgb: utils.get_color_from_hex('#24292F')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    Image:
+        pos_hint: {'right': 1, 'top': 0.9}
+        size_hint: 1, 0.2
+        source: 'icones/empresa06.jpg'
+    ScreenManager:
+        pos_hint: {'right': 1, 'top': 0.7}
+        size_hint: 1, 0.7
+        id: screen_manager
+
+        HomePage:
+            name: 'homepage'
+            id: homepage
+
+        MenuPage:
+            name: 'menupage'
+            id: menupage
