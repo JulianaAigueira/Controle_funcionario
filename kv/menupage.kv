@@ -1,0 +1,83 @@
+<MenuPage>:
+    FloatLayout:
+        canvas:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                source:'icones/fundo.jpg'
+        Label:
+            canvas.before:
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                    source: 'icones/label.png'
+
+            pos_hint: {'right':0.85, 'top': 0.95}
+            size_hint: 0.7, 0.2
+            bold: True
+            text: 'MENU PRINCIPAL'
+            id: id_menu
+
+        # adicionar funcionário
+        ImageButton:
+            pos_hint: {'right': 0.35, 'top': 0.72}
+            size_hint: 0.2, 0.10
+            source: 'icones/botao_add.png'
+            on_release: print('Add funcionário')
+        LabelButton:
+            pos_hint: {'right': 0.9, 'top': 0.74}
+            size_hint: 0.5, 0.15
+            text: 'Adicionar funcionário'
+            on_release: print('Add funcionário')
+
+        # buscar funcionário
+        ImageButton:
+            pos_hint: {'right': 0.35, 'top': 0.58}
+            size_hint: 0.2, 0.10
+            source: 'icones/botao_busca.png'
+            on_release: print('Buscar funcionário')
+        LabelButton:
+            pos_hint: {'right': 0.9, 'top': 0.6}
+            size_hint: 0.5, 0.15
+            text: 'Buscar funcionário'
+            on_release: print('Buscar funcionário')
+
+        # Editar funcionário
+        ImageButton:
+            pos_hint: {'right': 0.35, 'top': 0.45}
+            size_hint: 0.2, 0.10
+            source: 'icones/botao_editar.png'
+            on_release: print('Editar funcionário')
+        LabelButton:
+            pos_hint: {'right': 0.9, 'top': 0.46}
+            size_hint: 0.5, 0.15
+            text: 'Editar funcionário'
+            on_release: print('Editar funcionário')
+
+        # Excluir funcionário
+        ImageButton:
+            pos_hint: {'right': 0.35, 'top': 0.3}
+            size_hint: 0.2, 0.10
+            source: 'icones/botao_excluir.png'
+            on_release: print('Excluir funcionário')
+        LabelButton:
+            pos_hint: {'right': 0.9, 'top': 0.32}
+            size_hint: 0.5, 0.15
+            text: 'Excluir funcionário'
+            on_release: print('Excluir funcionário')
+
+        # botão de voltar
+        FloatLayout:
+            pos_hint: {'right': 1, 'top': 0.12}
+            size_hint: 1, 0.12
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex('#7F7F7F')
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            ImageButton:
+                pos_hint: {'right': 0.2, 'top': 0.9}
+                size_hint: 0.2, 0.8
+                source: 'icones/botao_voltar.png'
+                on_release: app.mudar_tela('homepage')
