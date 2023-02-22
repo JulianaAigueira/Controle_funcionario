@@ -6,9 +6,54 @@
                 pos: self.pos
                 source:'icones/fundo.jpg'
         Label:
-            pos_hint: {'right':1, 'top': 1}
-            size_hint: 1, 0.85
-            text:'Homepage'
+            pos_hint: {'right':0.9, 'top': 0.9}
+            size_hint: 0.8, 0.2
+            text:'CONTROLE DE [color=#A2A9BE]FUNCIONÁRIO[/color]'
+            bold: True
+            markup: True
+
+        TextInput:
+            id: email
+            hint_text: 'E-mail'
+            pos_hint: {'right':0.9, 'top': 0.7}
+            size_hint: 0.8, 0.1
+
+        TextInput:
+            id: senha
+            password: True
+            hint_text: 'Senha'
+            pos_hint: {'right':0.9, 'top': 0.55}
+            size_hint: 0.8, 0.1
+
+        Label:
+            id: mensagem_login
+            text: '[color=#A2A9BE]Faça seu login[/color]'
+            bold: True
+            markup: True
+            pos_hint: {'right':0.9, 'top': 0.4}
+            size_hint: 0.8, 0.1
+
+        LabelButton:
+            canvas.before:
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    source:'icones/botão_login01.jpg' if self.state == 'normal' else 'icones/botão_login02.jpg'
+            on_release: print('Faça Login')
+            text: 'Faça seu Login'
+            pos_hint: {'right':0.45, 'top': 0.3}
+            size_hint: 0.4, 0.2
+
+        LabelButton:
+            canvas.before:
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    source:'icones/botão_login01.jpg' if self.state == 'normal' else 'icones/botão_login02.jpg'
+            on_release: app.firebase.criar_conta(email.text, senha.text)
+            text: 'Criar Conta'
+            pos_hint: {'right':0.95, 'top': 0.3}
+            size_hint: 0.4, 0.2
 
         Button:
             pos_hint: {'right':1, 'top': 0.15}
