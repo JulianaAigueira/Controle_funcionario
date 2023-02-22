@@ -23,48 +23,52 @@
             pos_hint: {'right': 0.35, 'top': 0.72}
             size_hint: 0.2, 0.10
             source: 'icones/botao_add.png'
-            on_release: print('Add funcionário')
+            on_release: app.mudar_tela('adicionarfuncionariopage')
         LabelButton:
             pos_hint: {'right': 0.9, 'top': 0.74}
             size_hint: 0.5, 0.15
+            bold: True
             text: 'Adicionar funcionário'
-            on_release: print('Add funcionário')
+            on_release: app.mudar_tela('adicionarfuncionariopage')
 
         # buscar funcionário
         ImageButton:
             pos_hint: {'right': 0.35, 'top': 0.58}
             size_hint: 0.2, 0.10
             source: 'icones/botao_busca.png'
-            on_release: print('Buscar funcionário')
+            on_release: app.mudar_tela('buscarfuncionariopage')
         LabelButton:
             pos_hint: {'right': 0.9, 'top': 0.6}
             size_hint: 0.5, 0.15
+            bold: True
             text: 'Buscar funcionário'
-            on_release: print('Buscar funcionário')
+            on_release: app.mudar_tela('buscarfuncionariopage')
 
         # Editar funcionário
         ImageButton:
             pos_hint: {'right': 0.35, 'top': 0.45}
             size_hint: 0.2, 0.10
             source: 'icones/botao_editar.png'
-            on_release: print('Editar funcionário')
+            on_release: app.mudar_tela('editarfuncionariopage')
         LabelButton:
             pos_hint: {'right': 0.9, 'top': 0.46}
             size_hint: 0.5, 0.15
+            bold: True
             text: 'Editar funcionário'
-            on_release: print('Editar funcionário')
+            on_release: app.mudar_tela('editarfuncionariopage')
 
         # Excluir funcionário
         ImageButton:
             pos_hint: {'right': 0.35, 'top': 0.3}
             size_hint: 0.2, 0.10
             source: 'icones/botao_excluir.png'
-            on_release: print('Excluir funcionário')
+            on_release: app.mudar_tela('excluirfuncionariopage')
         LabelButton:
             pos_hint: {'right': 0.9, 'top': 0.32}
             size_hint: 0.5, 0.15
+            bold: True
             text: 'Excluir funcionário'
-            on_release: print('Excluir funcionário')
+            on_release: app.mudar_tela('excluirfuncionariopage')
 
         # botão de voltar
         FloatLayout:
