@@ -1,0 +1,28 @@
+<BuscarFuncionarioPage>:
+    FloatLayout:
+        canvas:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                source:'icones/fundo.jpg'
+        Label:
+            pos_hint: {'right':0.85, 'top': 0.95}
+            size_hint: 0.7, 0.2
+            bold: True
+            text: 'BUSCAR FUNCIONÁRIO'
+
+        # botão de voltar
+        FloatLayout:
+            pos_hint: {'right': 1, 'top': 0.12}
+            size_hint: 1, 0.12
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex('#7F7F7F')
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            ImageButton:
+                pos_hint: {'right': 0.2, 'top': 0.9}
+                size_hint: 0.2, 0.8
+                source: 'icones/botao_voltar.png'
+                on_release: app.mudar_tela('menupage')
