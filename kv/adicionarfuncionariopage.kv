@@ -6,10 +6,65 @@
                 pos: self.pos
                 source:'icones/fundo.jpg'
         Label:
-            pos_hint: {'right':0.85, 'top': 0.95}
+            pos_hint: {'right':0.85, 'top': 1}
             size_hint: 0.7, 0.2
             bold: True
             text: 'ADICIONAR FUNCIONÁRIO'
+
+        TextInput:
+            id: nome_funcionario
+            hint_text: 'nome'
+            pos_hint: {'right':0.9, 'top': 0.85}
+            size_hint: 0.8, 0.075
+
+        TextInput:
+            id: cpf_funcionario
+            hint_text: 'CPF'
+            pos_hint: {'right':0.5, 'top': 0.77}
+            size_hint: 0.4, 0.075
+
+        TextInput:
+            id: endereco_funcionario
+            hint_text: 'endereço completo'
+            pos_hint: {'right':0.9, 'top': 0.69}
+            size_hint: 0.8, 0.075
+
+        TextInput:
+            id: cidade_funcionario
+            hint_text: 'cidade'
+            pos_hint: {'right':0.9, 'top': 0.61}
+            size_hint: 0.8, 0.075
+
+        TextInput:
+            id: estado_funcionario
+            hint_text: 'estado'
+            pos_hint: {'right':0.2, 'top': 0.53}
+            size_hint: 0.1, 0.075
+
+        TextInput:
+            id: admissao_funcionario
+            hint_text: 'adminssão'
+            pos_hint: {'right':0.5, 'top': 0.45}
+            size_hint: 0.4, 0.075
+
+        TextInput:
+            id: cargo_funcionario
+            hint_text: 'cargo'
+            pos_hint: {'right':0.9, 'top': 0.37}
+            size_hint: 0.8, 0.075
+
+        TextInput:
+            id: salario_funcionario
+            hint_text: 'salario'
+            pos_hint: {'right':0.5, 'top': 0.29}
+            size_hint: 0.4, 0.075
+
+        TextInput:
+            id: demissao_funcionario
+            hint_text: 'demissão'
+            pos_hint: {'right':0.5, 'top': 0.21}
+            size_hint: 0.4, 0.075
+
 
         # botão de voltar
         FloatLayout:
@@ -26,3 +81,10 @@
                 size_hint: 0.2, 0.8
                 source: 'icones/botao_voltar.png'
                 on_release: app.mudar_tela('menupage')
+
+            ImageButton:
+                pos_hint: {'right': 1, 'top': 0.9}
+                size_hint: 0.2, 0.8
+                source: 'icones/salvar.png'
+                on_release: app.firebase.adicionar_funcinario(nome_funcionario.text, cpf_funcionario.text, endereco_funcionario.text, cidade_funcionario.text, estado_funcionario.text, admissao_funcionario.text, cargo_funcionario.text, salario_funcionario.text, demissao_funcionario.text)
+                id: botao_salvar
