@@ -19,12 +19,53 @@
             pos_hint: {'right':0.9, 'top': 0.9}
             size_hint: 0.8, 0.075
 
-        Label:
-            pos_hint: {'right':0.85, 'top': 0.84}
-            size_hint: 0.7, 0.1
-            bold: True
-            text: ''
-            id: resultado_busca
+        TextInput:
+            id: buscar_nome_funcionario
+            hint_text: 'nome'
+            pos_hint: {'right':0.9, 'top': 0.85}
+            size_hint: 0.8, 0.075
+
+        TextInput:
+            id: buscar_endereco_funcionario
+            hint_text: 'endereço completo'
+            pos_hint: {'right':0.9, 'top': 0.69}
+            size_hint: 0.8, 0.075
+
+        TextInput:
+            id: buscar_cidade_funcionario
+            hint_text: 'cidade'
+            pos_hint: {'right':0.9, 'top': 0.61}
+            size_hint: 0.8, 0.075
+
+        TextInput:
+            id: buscar_estado_funcionario
+            hint_text: 'estado'
+            pos_hint: {'right':0.2, 'top': 0.53}
+            size_hint: 0.1, 0.075
+
+        TextInput:
+            id: buscar_admissao_funcionario
+            hint_text: 'adminssão'
+            pos_hint: {'right':0.5, 'top': 0.45}
+            size_hint: 0.4, 0.075
+
+        TextInput:
+            id: buscar_cargo_funcionario
+            hint_text: 'cargo'
+            pos_hint: {'right':0.9, 'top': 0.37}
+            size_hint: 0.8, 0.075
+
+        TextInput:
+            id: buscar_salario_funcionario
+            hint_text: 'salario'
+            pos_hint: {'right':0.5, 'top': 0.29}
+            size_hint: 0.4, 0.075
+
+        TextInput:
+            id: buscar_demissao_funcionario
+            hint_text: 'demissão'
+            pos_hint: {'right':0.5, 'top': 0.21}
+            size_hint: 0.4, 0.075
 
         # botão de voltar
         FloatLayout:
@@ -47,4 +88,5 @@
                 size_hint: 0.2, 0.8
                 source: 'icones/botao_busca.png'
                 on_release: app.firebase.buscarfuncionario(buscar_funcionario.text)
-                id: botao_salvar
+                id: botao_buscar
+
