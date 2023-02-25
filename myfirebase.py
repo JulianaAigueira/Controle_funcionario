@@ -15,6 +15,7 @@ class MyFirebase():
                 'returnSecureToken': True}
         requisicao = requests.post(link, data=info)
         requisicao_dic = requisicao.json()
+        print(requisicao_dic)
 
         if requisicao.ok:
             print('Usuário Criado')
@@ -34,7 +35,7 @@ class MyFirebase():
 
             #link do banco de dados
             link = f'https://appcadastrofuncionario-default-rtdb.firebaseio.com/{local_id}.json'
-            info_admin = '{"admin": "", "email": "", "foto": "admin.png", "senha": ""}'
+            info_admin = '{"admin": "", "email": "", "foto": "admin.png", "password": ""}'
             requisicao_admin = requests.patch(link, data=info_admin)
             meu_aplicativo.mudar_tela('menupage')
 
@@ -71,13 +72,64 @@ class MyFirebase():
         link = 'https://appcadastrofuncionario-default-rtdb.firebaseio.com/'
         requisicao = requests.get(f'{link}/funcionário/.json')
         requisicao_dic = requisicao.json()
-        #print(requisicao_dic)
+       # print(requisicao_dic['CPF'])
         id_cpf = None
         for id_funcionario in requisicao_dic:
             funcionario = requisicao_dic[id_funcionario]['CPF']
             if funcionario == cpf:
                 print(id_funcionario)
                 id_cpf = id_funcionario
-                resultado = requests.get(f'{link}/funcionário/{id_cpf}/.json')
 
-        self.ids['buscarfuncionariopage'].ids.resultado_busca.text = 5
+        requisicao = requests.get(f'{link}/funcionário/{id_cpf}/.json')
+        print(requisicao)
+        requisicao_dic = requisicao.json()
+        print(requisicao_dic)
+
+        meu_aplicativo = App.get_running_app()
+        buscacpf = meu_aplicativo.root.ids["buscarfuncionariopage"]
+        buscacpf.ids['buscar_nome_funcionario'].text = requisicao_dic['nome']
+        buscacpf.ids['buscar_endereco_funcionario'].text = requisicao_dic['endereço']
+        buscacpf.ids['buscar_cidade_funcionario'].text = requisicao_dic['cidade']
+        buscacpf.ids['buscar_estado_funcionario'].text = requisicao_dic['uf']
+        buscacpf.ids['buscar_admissao_funcionario'].text = requisicao_dic['demissão']
+        buscacpf.ids['buscar_cargo_funcionario'].text = requisicao_dic['cargo']
+        buscacpf.ids['buscar_salario_funcionario'].text = requisicao_dic['salário']
+        buscacpf.ids['buscar_demissao_funcionario'].text = requisicao_dic['demissão']
+
+    def deletarfuncionario(self, cpf):
+        link = 'https://appcadastrofuncionario-default-rtdb.firebaseio.com/'
+        requisicao = requests.get(f'{link}/funcionário/.json')
+        requisicao_dic = requisicao.json()
+        # print(requisicao_dic['CPF'])
+        id_cpf = None
+        for id_funcionario in requisicao_dic:
+            funcionario = requisicao_dic[id_funcionario]['CPF']
+            if funcionario == cpf:
+                print(id_funcionario)
+                id_cpf = id_funcionario
+
+        requisicao = requests.get(f'{link}/funcionário/{id_cpf}/.json')
+        print(requisicao)
+        requisicao_dic = requisicao.json()
+        print(requisicao_dic)
+
+        meu_aplicativo = App.get_running_app()
+        buscacpf = meu_aplicativo.root.ids["excluirfuncionariopage"]
+        buscacpf.ids['excluir_nome_funcionario'].text = requisicao_dic['nome']
+
+
+    def deletarfinal(self, cpf):
+        link = 'https://appcadastrofuncionario-default-rtdb.firebaseio.com/'
+        requisicao = requests.get(f'{link}/funcionário/.json')
+        requisicao_dic = requisicao.json()
+        # print(requisicao_dic['CPF'])
+        id_cpf = None
+        for id_funcionario in requisicao_dic:
+            funcionario = requisicao_dic[id_funcionario]['CPF']
+            if funcionario == cpf:
+                print(id_funcionario)
+                id_cpf = id_funcionario
+
+
+        requisicao = requests.delete(f'{link}/funcionário/{id_cpf}/.json')
+        
