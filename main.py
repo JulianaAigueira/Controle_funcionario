@@ -8,7 +8,7 @@ from myfirebase import MyFirebase
 GUI = Builder.load_file('main.kv')
 
 class MainApp(App):
-    id_usuario = 'admin'
+    id_usuario = 'admin/1'
     def build(self):
         self.firebase = MyFirebase()
         return GUI
@@ -19,9 +19,9 @@ class MainApp(App):
         requisicao_dic = requisicao.json()
 
         #preencher foto de ferfil
-        foto = requisicao_dic['foto']
-        foto_admin = self.root.ids['foto_admin']
-        foto_admin.source = f'icones/{foto}'
+        #foto = requisicao_dic['foto']
+        #foto_admin = self.root.ids['foto_admin']
+        #foto_admin.source = f'icones/{foto}'
         #print(requisicao_dic)
 
 
