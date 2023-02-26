@@ -6,7 +6,6 @@ class HomePage(Screen):
 
 class MenuPage(Screen):
     pass
-
 class AdicionarFuncionarioPage(Screen):
     pass
 
