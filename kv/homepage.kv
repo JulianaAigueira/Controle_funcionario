@@ -39,7 +39,7 @@
                     size: self.size
                     pos: self.pos
                     source:'icones/botão_login01.jpg' if self.state == 'normal' else 'icones/botão_login02.jpg'
-            on_release: print('Faça Login')
+            on_release: app.firebase.fazer_login(email.text, senha.text)
             text: 'Login'
             pos_hint: {'right':0.45, 'top': 0.3}
             size_hint: 0.4, 0.1
@@ -55,8 +55,8 @@
             pos_hint: {'right':0.95, 'top': 0.3}
             size_hint: 0.4, 0.1
 
-        Button:
-            pos_hint: {'right':1, 'top': 0.15}
-            size_hint: 0.33, 0.15
-            text: 'ir para menu'
-            on_release: app.mudar_tela('menupage')
+        #Button:
+            #pos_hint: {'right':1, 'top': 0.15}
+            #size_hint: 0.33, 0.15
+            #text: 'ir para menu'
+            #on_release: app.mudar_tela('menupage')
