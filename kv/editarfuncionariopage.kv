@@ -6,10 +6,64 @@
                 pos: self.pos
                 source:'icones/fundo.jpg'
         Label:
-            pos_hint: {'right':0.85, 'top': 0.95}
+            pos_hint: {'right':0.85, 'top': 1}
             size_hint: 0.7, 0.2
             bold: True
             text: 'EDITAR FUNCIONÁRIO'
+
+        TextInput:
+            id: editar_cpf_funcionario
+            hint_text: 'CPF'
+            pos_hint: {'right':0.9, 'top': 0.85}
+            size_hint: 0.8, 0.075
+
+        TextInput:
+            id: editar_nome_funcionario
+            hint_text: 'nome'
+            pos_hint: {'right':0.5, 'top': 0.77}
+            size_hint: 0.4, 0.075
+
+        TextInput:
+            id: editar_endereco_funcionario
+            hint_text: 'endereço completo'
+            pos_hint: {'right':0.9, 'top': 0.69}
+            size_hint: 0.8, 0.075
+
+        TextInput:
+            id: editar_cidade_funcionario
+            hint_text: 'cidade'
+            pos_hint: {'right':0.9, 'top': 0.61}
+            size_hint: 0.8, 0.075
+
+        TextInput:
+            id: editar_estado_funcionario
+            hint_text: 'estado'
+            pos_hint: {'right':0.2, 'top': 0.53}
+            size_hint: 0.1, 0.075
+
+        TextInput:
+            id: editar_admissao_funcionario
+            hint_text: 'adminssão'
+            pos_hint: {'right':0.5, 'top': 0.45}
+            size_hint: 0.4, 0.075
+
+        TextInput:
+            id: editar_cargo_funcionario
+            hint_text: 'cargo'
+            pos_hint: {'right':0.9, 'top': 0.37}
+            size_hint: 0.8, 0.075
+
+        TextInput:
+            id: editar_salario_funcionario
+            hint_text: 'salario'
+            pos_hint: {'right':0.5, 'top': 0.29}
+            size_hint: 0.4, 0.075
+
+        TextInput:
+            id: editar_demissao_funcionario
+            hint_text: 'demissão'
+            pos_hint: {'right':0.5, 'top': 0.21}
+            size_hint: 0.4, 0.075
 
         # botão de voltar
         FloatLayout:
@@ -26,3 +80,17 @@
                 size_hint: 0.2, 0.8
                 source: 'icones/botao_voltar.png'
                 on_release: app.mudar_tela('menupage')
+
+            ImageButton:
+                pos_hint: {'right': 1, 'top': 0.9}
+                size_hint: 0.2, 0.8
+                source: 'icones/salvar.png'
+                on_release: app.firebase.atualizar_funcinario(editar_nome_funcionario.text, editar_cpf_funcionario.text, editar_endereco_funcionario.text, editar_cidade_funcionario.text, editar_estado_funcionario.text, editar_admissao_funcionario.text, editar_cargo_funcionario.text, editar_salario_funcionario.text, editar_demissao_funcionario.text)
+                id: botao_atualizar
+
+            ImageButton:
+                pos_hint: {'right': 0.6, 'top': 0.9}
+                size_hint: 0.2, 0.8
+                source: 'icones/botao_busca.png'
+                on_release: app.firebase.editarfuncionario(editar_cpf_funcionario.text)
+                id: botao_buscar3
