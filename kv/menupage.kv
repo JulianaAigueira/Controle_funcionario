@@ -85,3 +85,9 @@
                 size_hint: 0.2, 0.8
                 source: 'icones/botao_voltar.png'
                 on_release: app.mudar_tela('homepage')
+
+            ImageButton:
+                pos_hint: {'right': 1, 'top': 0.9}
+                size_hint: 0.2, 0.8
+                source: 'icones/botao_fechar.png'
+                on_release: exit()
